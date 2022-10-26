@@ -1,0 +1,41 @@
+This package contains the analysis software for analyzing the output of
+Modules/Calibration/ResidualsModuleBR/ResidualsModuleBR.cc. The
+procedure for performing the analysis is the following:
+
+1) Submit a reconstruction sequence with the module
+ResidualsModuleBR
+
+in the module sequence file.
+
+2) Perform an hadd on all output files. Move the resulting
+ROOT file into this directory.
+
+3) Type 'make' in this directory.
+
+4) Run ./ResidualsCalculator -i [inputFile]. The files
+averages-[inputFile] and [inputFile].txt
+will be produced. The first contains QA information, and the
+second contains the residual correction factors.
+
+4a) Use the optional flag ' -l / --localTrackResiduals' to calculate
+residuals spanning only one TPC.
+
+5) Run the ROOT macro for plotting the results:
+> root 'PlotResiduals("averages-[inputFile]")'
+This will produce the file averages-[inputFile].pdf. Ensure
+the output is reasonable.
+
+6) Move the result file [inputFile].txt to the desired
+database location.
+
+7) Re-run the jobs with the residuals correction
+enabled. Check the QA plots for proper correction of
+track residuals.
+
+8) [optional] Re-run the correction with the flag '--updateResiduals'
+and the file TPCResidualsFixedManager.xml pointing to a folder
+containing the previously-calculated corrections. This will update the
+corrections, allowing the correction to be run iteratively.
+
+Have fun!
+-Brant Rumberger, 2022

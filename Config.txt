@@ -1,0 +1,50 @@
+### Config file for Krypton Calibration Analyzer ###
+
+# This file is for holding application-specific constants. It is
+# parsed by ResidualsCalculator. This configuration file is expected
+# to be in the directory in which ResidualsCalculator is run. Users
+# may override this by providing the path to a valid configuration
+# file using the '-c [path-to-config]' option.
+
+# Lines in this file beginning with a '#' will be ignored. Enjoy!
+
+# Max average cluster-track fit resdual (cm). Used for both local
+# tracks and vertex tracks.
+
+maxAverageResidual 0.06
+
+# Minumum number of averager entries for a residuals calculation in
+# any given bin to be written out. Usef for both local tracks and
+# vertex tracks.
+
+minEntries 10
+
+# Vertex track cuts.
+
+# Potential points ratio cut.
+minPotentialPointsRatio 0.6
+maxPotentialPointsRatio 1.2
+
+# Impact parameter cut (cm).
+maxBX 4.0
+maxBY 2.0
+
+# Max vertex track fit chi2.
+maxChi2 200
+
+
+# Minimum number of clusters that must be present in each TPC. For
+# local track residuals only.
+
+minClustersByTPC VTPC1 36;
+minClustersByTPC VTPC2 36;
+minClustersByTPC GTPC 6;
+minClustersByTPC MTPCL 40;
+minClustersByTPC MTPCR 40;
+minClustersByTPC FTPC1 10;
+minClustersByTPC FTPC2 10;
+minClustersByTPC FTPC3 10;
+
+
+
+
